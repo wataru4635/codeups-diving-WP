@@ -1,0 +1,108 @@
+@use "global" as *;
+
+.section-button {
+  display: inline-block;
+  color: $white;
+  line-height: 1.57;
+  font-size: rem(14);
+  font-family: $english-font-family;
+  font-weight: $regular;
+  background-color: $accent-color;
+  padding-top: rem(16);
+  padding-bottom: rem(16);
+  padding-left: rem(40);
+  padding-right: rem(88);
+  position: relative;
+  left: rem(-3);
+  z-index: 1;
+}
+
+.section-button::before {
+  content: "";
+  position: absolute;
+  border: rem(1) solid $accent-color;
+  width: rem(202);
+  height: rem(54);
+  top: rem(4);
+  left: rem(4);
+  z-index: -1;
+}
+.section-button::after {
+  background: $white;
+  position: absolute;
+  top: 0;
+  border: rem(1) solid $accent-color;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: 0.3s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: -1;
+}
+.section-button:hover {
+  @include mq("md") {
+    color: $accent-color;
+  }
+}
+.section-button:hover::after {
+  @include mq("md") {
+    transform: scale(1, 1);
+  }
+}
+
+.section-button span {
+  position: relative;
+}
+
+.section-button span::after {
+  content: "";
+  position: absolute;
+  width: rem(40);
+  height: 100%;
+  background-image: url(../images/common/button-arrow_white.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: rem(7);
+  left: rem(5);
+  margin-left: rem(8);
+}
+
+.section-button:hover span::after {
+  @include mq("md") {
+    background-image: url(../images/common/button-arrow_blue.png);
+  }
+}
+
+.section-button--white {
+  color: $accent-color;
+  background-color: $white;
+  padding-left: rem(48);
+}
+
+
+.section-button--white::before {
+  border: rem(1) solid $white;
+}
+
+.section-button--white::after {
+  background: $accent-color;
+  border: rem(1) solid $white;
+}
+
+.section-button--white:hover {
+  @include mq("md") {
+    color: $white;
+  }
+}
+
+.section-button--white span::after {
+  background-image: url(../images/common/button-arrow_blue.png);
+}
+
+.section-button--white:hover span::after {
+  @include mq("md") {
+    background-image: url(../images/common/button-arrow_white.png);
+  }
+}

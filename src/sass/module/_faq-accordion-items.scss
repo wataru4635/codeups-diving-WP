@@ -1,0 +1,6 @@
+@use 'global' as *;
+
+.faq-accordion-items {
+  display: grid;
+  gap: rem(40);
+}
