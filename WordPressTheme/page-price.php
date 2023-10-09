@@ -1,29 +1,31 @@
 <?php get_header(); ?> <main>
 
-<!-- 下層ページのメインビュー -->
+  <!-- 下層ページのメインビュー -->
 
-<section class="sub-mv">
-  <div class="sub-mv__header">
-    <h1 class="sub-mv__title">price</h1>
-  </div>
-  <div class="sub-mv__img">
-    <picture>
-      <source media="(max-width: 767px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-price-mv_sp.jpg" type="image/jpeg" />
-      <source media="(min-width: 768px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-price-mv_pc.jpg" type="image/jpeg" />
-      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-price-mv_sp.jpg" alt="たくさんの魚が泳いでいる様子" />
-    </picture>
-  </div>
-</section>
+  <section class="sub-mv">
+    <div class="sub-mv__header">
+      <h1 class="sub-mv__title">price</h1>
+    </div>
+    <div class="sub-mv__img">
+      <picture>
+        <source media="(max-width: 767px)"
+          srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-price-mv_sp.jpg" type="image/jpeg" />
+        <source media="(min-width: 768px)"
+          srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-price-mv_pc.jpg" type="image/jpeg" />
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/page-price-mv_sp.jpg" alt="たくさんの魚が泳いでいる様子" />
+      </picture>
+    </div>
+  </section>
 
-<!-- パンくずリスト -->
-<?php get_template_part('parts/breadcrumb') ?>
+  <!-- パンくずリスト -->
+  <?php get_template_part('parts/breadcrumb') ?>
 
-<!-- page-price -->
-<section class="page-price sub-page-price">
-  <div class="page-price__inner inner">
+  <!-- page-price -->
+  <section class="page-price sub-page-price">
+    <div class="page-price__inner inner">
 
-<div class="page-price__container">
-  <?php
+      <div class="page-price__container">
+        <?php
 // プランごとに配列にまとめる
 $plans = [
     1 => [
@@ -48,30 +50,32 @@ $plans = [
     ]
 ];
 ?>
-    <?php foreach ($plans as $plan) : ?>
+        <?php foreach ($plans as $plan) : ?>
         <div class="page-price__table price-table" id="price-license">
-            <div class="price-table__header">
-                <div class="price-table__header-img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/information-tab_1-active.png" alt="ロゴ画像" />
-                </div>
-                <h2 class="price-table__header-title"><?php echo $plan['title']; ?></h2>
+          <div class="price-table__header">
+            <div class="price-table__header-img">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/information-tab_1-active.png"
+                alt="ロゴ画像" />
             </div>
-            <dl class="price-table__body">
-                <?php
+            <h2 class="price-table__header-title"><?php echo $plan['title']; ?></h2>
+          </div>
+          <dl class="price-table__body">
+            <?php
                 $price_group = SCF::get_option_meta('price-options', $plan['group']);
                 foreach ($price_group as $item) :
                 ?>
-                    <dt class="price-table__text">
-                        <?php echo $item[$plan['course_key'][0]]; ?> <br class="u-mobile" /><?php echo $item[$plan['course_key'][1]]; ?>
-                    </dt>
-                    <dd class="price-table__price"><?php echo $item[$plan['course_key'][2]]; ?></dd>
-                <?php endforeach ?>
-            </dl>
+            <dt class="price-table__text">
+              <?php echo $item[$plan['course_key'][0]]; ?> <br
+                class="u-mobile" /><?php echo $item[$plan['course_key'][1]]; ?>
+            </dt>
+            <dd class="price-table__price"><?php echo $item[$plan['course_key'][2]]; ?></dd>
+            <?php endforeach ?>
+          </dl>
         </div>
-    <?php endforeach ?>
-</div>
+        <?php endforeach ?>
+      </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 </main>
 <?php get_footer(); ?>

@@ -44,117 +44,122 @@ if (!is_page(array('contact', 'contact-thanks')) && !is_404()) :
     </section>
     <?php endif; ?>
 
- <!-- footer -->
+    <!-- footer -->
 
- <footer class="footer <?php echo is_404() ? 'error-footer' : 'top-footer'; ?>">
-    <div class="footer__inner inner">
-      <div class="footer__wrapper">
-        <div class="footer__logo">
-          <a href="<?php echo esc_url(home_url()); ?>/index.php"class="footer__logoLink">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="ロゴ画像" />
-          </a>
-        </div>
-        <div class="footer__sns sns">
-          <div class="sns__facebook">
-            <a href="#">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook.svg" alt="facebook" />
+    <footer class="footer <?php echo is_404() ? 'error-footer' : 'top-footer'; ?>">
+      <div class="footer__inner inner">
+        <div class="footer__wrapper">
+          <div class="footer__logo">
+            <a href="<?php echo esc_url(home_url()); ?>/index.php" class="footer__logoLink">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="ロゴ画像" />
             </a>
           </div>
-          <div class="sns__instagram">
-            <a href="#">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram.svg" alt="instagram" />
-            </a>
+          <div class="footer__sns sns">
+            <div class="sns__facebook">
+              <a href="#">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook.svg" alt="facebook" />
+              </a>
+            </div>
+            <div class="sns__instagram">
+              <a href="#">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram.svg" alt="instagram" />
+              </a>
+            </div>
           </div>
         </div>
+        <div class="footer__nav nav">
+          <div class="nav__container">
+            <div class="nav__list">
+              <ul class="nav__items">
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('campaign')); ?>">キャンペーン</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">ライセンス取得</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">貸切体験ダイビング</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">ナイトダイビング</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('about')); ?>">私たちについて</a>
+                </li>
+              </ul>
+              <ul class="nav__items">
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('information')); ?>">ダイビング情報</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu js-tab-list" data-tab="license"
+                    href="<?php echo esc_url(home_url('information')); ?>">ライセンス講習</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu js-tab-list" data-tab="fanDiving"
+                    href="<?php echo esc_url(home_url('information')); ?>?tab=fanDiving">ファンダイビング</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu js-tab-list" data-tab="experienceDiving"
+                    href="<?php echo esc_url(home_url('information')); ?>?tab=experienceDiving">体験ダイビング</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('blog')); ?>">ブログ</a>
+                </li>
+              </ul>
+            </div>
+            <div class="nav__list">
+              <ul class="nav__items">
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('voice')); ?>">お客様の声</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('price')); ?>">料金一覧</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#price-license">ライセンス講習</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu"
+                    href="<?php echo esc_url(home_url('price')); ?>#price-experienceDiving">体験ダイビング</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#price-fandiving">ファンダイビング</a>
+                </li>
+              </ul>
+              <ul class="nav__items">
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('faq')); ?>">よくある質問</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('privacypolicy')); ?>">プライバシー<br
+                      class="u-mobile" />ポリシー</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('sitemap')); ?>">サイトマップ</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('terms')); ?>">利用規約</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('contact')); ?>">お問い合わせ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__copyright">
+          <small>Copyright &copy; 2021 - 2023 CodeUps LLC. All Rights
+            Reserved.</small>
+        </div>
       </div>
-      <div class="footer__nav nav">
-      <div class="nav__container">
-    <div class="nav__list">
-      <ul class="nav__items">
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('campaign')); ?>">キャンペーン</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">ライセンス取得</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">貸切体験ダイビング</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">ナイトダイビング</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('about')); ?>">私たちについて</a>
-        </li>
-      </ul>
-      <ul class="nav__items">
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('information')); ?>">ダイビング情報</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__submenu js-tab-list" data-tab="license" href="<?php echo esc_url(home_url('information')); ?>">ライセンス講習</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__submenu js-tab-list" data-tab="fanDiving" href="<?php echo esc_url(home_url('information')); ?>?tab=fanDiving">ファンダイビング</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__submenu js-tab-list" data-tab="experienceDiving" href="<?php echo esc_url(home_url('information')); ?>?tab=experienceDiving">体験ダイビング</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('blog')); ?>">ブログ</a>
-        </li>
-      </ul>
+    </footer>
+    <div class="to-top js-to-top">
+      <a href="#top">
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/to-top.png" alt="トップに戻るボタン" />
+      </a>
     </div>
-    <div class="nav__list">
-      <ul class="nav__items">
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('voice')); ?>">お客様の声</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('price')); ?>">料金一覧</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#price-license">ライセンス講習</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#price-experienceDiving">体験ダイビング</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#price-fandiving">ファンダイビング</a>
-        </li>
-      </ul>
-      <ul class="nav__items">
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('faq')); ?>">よくある質問</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('privacypolicy')); ?>">プライバシー<br class="u-mobile"/>ポリシー</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('sitemap')); ?>">サイトマップ</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('terms')); ?>">利用規約</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__menu" href="<?php echo esc_url(home_url('contact')); ?>">お問い合わせ</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-      </div>
-      <div class="footer__copyright">
-        <small>Copyright &copy; 2021 - 2023 CodeUps LLC. All Rights
-          Reserved.</small>
-      </div>
-    </div>
-  </footer>
-  <div class="to-top js-to-top">
-    <a href="#top">
-      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/to-top.png" alt="トップに戻るボタン" />
-    </a>
-  </div>
-  <?php wp_footer(); ?>
-</body>
+    <?php wp_footer(); ?>
+    </body>
 
-</html>
+    </html>

@@ -206,9 +206,3 @@ function custom_get_select_values( $values, $options, $args ) {
   return $values;
 }
 add_filter( 'wpcf7_form_tag_data_option', 'custom_get_select_values', 10, 3 );
-
-
-
-
-
-
