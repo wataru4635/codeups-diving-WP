@@ -50,8 +50,8 @@ $plans = [
     ]
 ];
 ?>
-        <?php foreach ($plans as $plan) : ?>
-        <div class="page-price__table price-table" id="price-license">
+    <?php foreach ($plans as $plan_id => $plan) : ?>
+        <div class="page-price__table price-table" id="plan-<?php echo $plan_id; ?>">
           <div class="price-table__header">
             <div class="price-table__header-img">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/information-tab_1-active.png"

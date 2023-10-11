@@ -13,7 +13,7 @@ if (!is_page(array('contact', 'contact-thanks')) && !is_404()) :
             <div class="contact__info">
               <ul class="contact__info-lists">
                 <li class="contact__info-list">沖縄県那覇市1-1</li>
-                <li class="contact__info-list">TEL:0120-000-0000</li>
+                <a href="tel:01200000000" class="contact__info-list">TEL:0120-000-0000</a>
                 <li class="contact__info-list">営業時間:8:30-19:00</li>
                 <li class="contact__info-list">定休日:毎週火曜日</li>
               </ul>
@@ -56,12 +56,12 @@ if (!is_page(array('contact', 'contact-thanks')) && !is_404()) :
           </div>
           <div class="footer__sns sns">
             <div class="sns__facebook">
-              <a href="#">
+              <a href="https://www.facebook.com" target="_blank">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebook.svg" alt="facebook" />
               </a>
             </div>
             <div class="sns__instagram">
-              <a href="#">
+              <a href="https://www.instagram.com" target="_blank">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram.svg" alt="instagram" />
               </a>
             </div>
@@ -74,15 +74,12 @@ if (!is_page(array('contact', 'contact-thanks')) && !is_404()) :
                 <li class="nav__item">
                   <a class="nav__menu" href="<?php echo esc_url(home_url('campaign')); ?>">キャンペーン</a>
                 </li>
-                <li class="nav__item">
-                  <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">ライセンス取得</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">貸切体験ダイビング</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">ナイトダイビング</a>
-                </li>
+                <?php $course_terms = get_terms('campaign_category', array('hide_empty'=>false)); ?>
+                <?php foreach($course_terms as $course_term ) : ?>
+              <li class="nav__item">
+                <a class="nav__submenu" href="<?php echo get_term_link($course_term,'campaign_category'); ?>"><?php echo $course_term->name; ?></a>
+              </li>
+              <?php endforeach; ?>
                 <li class="nav__item">
                   <a class="nav__menu" href="<?php echo esc_url(home_url('about')); ?>">私たちについて</a>
                 </li>
@@ -117,14 +114,17 @@ if (!is_page(array('contact', 'contact-thanks')) && !is_404()) :
                   <a class="nav__menu" href="<?php echo esc_url(home_url('price')); ?>">料金一覧</a>
                 </li>
                 <li class="nav__item">
-                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#price-license">ライセンス講習</a>
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#plan-1">ライセンス講習</a>
                 </li>
                 <li class="nav__item">
                   <a class="nav__submenu"
-                    href="<?php echo esc_url(home_url('price')); ?>#price-experienceDiving">体験ダイビング</a>
+                    href="<?php echo esc_url(home_url('price')); ?>#plan-2">体験ダイビング</a>
                 </li>
                 <li class="nav__item">
-                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#price-fandiving">ファンダイビング</a>
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#plan-3">ファンダイビング</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#plan-4">スペシャル<br class="u-mobile" />ダイビング</a>
                 </li>
               </ul>
               <ul class="nav__items">
@@ -132,8 +132,7 @@ if (!is_page(array('contact', 'contact-thanks')) && !is_404()) :
                   <a class="nav__menu" href="<?php echo esc_url(home_url('faq')); ?>">よくある質問</a>
                 </li>
                 <li class="nav__item">
-                  <a class="nav__menu" href="<?php echo esc_url(home_url('privacypolicy')); ?>">プライバシー<br
-                      class="u-mobile" />ポリシー</a>
+                  <a class="nav__menu" href="<?php echo esc_url(home_url('privacypolicy')); ?>">プライバシー<br class="u-mobile" />ポリシー</a>
                 </li>
                 <li class="nav__item">
                   <a class="nav__menu" href="<?php echo esc_url(home_url('sitemap')); ?>">サイトマップ</a>

@@ -29,73 +29,76 @@
         <div class="nav__list">
           <ul class="nav__items">
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap menu--margin-top" href="page-campaign.html">キャンペーン</a>
+              <a class="nav__menu nav__menu--sitemap menu--margin-top" href="<?php echo esc_url(home_url('campaign')); ?>">キャンペーン</a>
             </li>
             <li class="nav__item">
-              <a class="nav__submenu nav__submenu--sitemap" href="page-campaign.html">ライセンス取得</a>
+              <a class="nav__submenu nav__submenu--sitemap" href="<?php echo esc_url(home_url('campaign')); ?>">ライセンス取得</a>
             </li>
             <li class="nav__item">
-              <a class="nav__submenu nav__submenu--sitemap" href="page-campaign.html">貸切体験ダイビング</a>
+              <a class="nav__submenu nav__submenu--sitemap" href="<?php echo esc_url(home_url('campaign')); ?>">貸切体験ダイビング</a>
             </li>
             <li class="nav__item">
-              <a class="nav__submenu nav__submenu--sitemap" href="page-campaign.html">ナイトダイビング</a>
+              <a class="nav__submenu nav__submenu--sitemap" href="<?php echo esc_url(home_url('campaign')); ?>">ナイトダイビング</a>
             </li>
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap" href="page-about.html">私たちについて</a>
+              <a class="nav__menu nav__menu--sitemap" href="<?php echo esc_url(home_url('about')); ?>">私たちについて</a>
             </li>
           </ul>
           <ul class="nav__items">
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap menu--margin-top" href="page-information.html">ダイビング情報</a>
+              <a class="nav__menu nav__menu--sitemap menu--margin-top" href="<?php echo esc_url(home_url('information')); ?>">ダイビング情報</a>
             </li>
             <li class="nav__item">
               <a class="nav__submenu nav__submenu--sitemap js-tab-list" data-tab="license"
-                href="page-information.html">ライセンス講習</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav__submenu nav__submenu--sitemap js-tab-list" data-tab="experienceDiving"
-                href="page-information.html?tab=experienceDiving">体験ダイビング</a>
+                href="<?php echo esc_url(home_url('information')); ?>">ライセンス講習</a>
             </li>
             <li class="nav__item">
               <a class="nav__submenu nav__submenu--sitemap js-tab-list" data-tab="fanDiving"
-                href="page-information.html?tab=fanDiving">ファンダイビング</a>
+                href="<?php echo esc_url(home_url('information')); ?>?tab=fanDiving">ファンダイビング</a>
             </li>
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap" href="page-blog.html">ブログ</a>
+              <a class="nav__submenu nav__submenu--sitemap js-tab-list" data-tab="experienceDiving"
+                href="<?php echo esc_url(home_url('information')); ?>?tab=experienceDiving">体験ダイビング</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__menu nav__menu--sitemap" href="<?php echo esc_url(home_url('blog')); ?>">ブログ</a>
             </li>
           </ul>
         </div>
         <div class="nav__list">
           <ul class="nav__items">
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap menu--margin-top" href="page-voice.html">お客様の声</a>
+              <a class="nav__menu nav__menu--sitemap menu--margin-top" href="<?php echo esc_url(home_url('voice')); ?>">お客様の声</a>
             </li>
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap" href="page-price.html">料金一覧</a>
+              <a class="nav__menu nav__menu--sitemap" href="<?php echo esc_url(home_url('price')); ?>">料金一覧</a>
             </li>
             <li class="nav__item">
-              <a class="nav__submenu nav__submenu--sitemap" href="page-price.html#price-license">ライセンス講習</a>
+              <a class="nav__submenu nav__submenu--sitemap" href="<?php echo esc_url(home_url('price')); ?>#plan-1">ライセンス講習</a>
             </li>
             <li class="nav__item">
-              <a class="nav__submenu nav__submenu--sitemap" href="page-price.html#price-experienceDiving">体験ダイビング</a>
+              <a class="nav__submenu nav__submenu--sitemap" href="<?php echo esc_url(home_url('price')); ?>#plan-2">体験ダイビング</a>
             </li>
             <li class="nav__item">
-              <a class="nav__submenu nav__submenu--sitemap" href="page-price.html#price-fandiving">ファンダイビング</a>
+              <a class="nav__submenu nav__submenu--sitemap" href="<?php echo esc_url(home_url('price')); ?>#plan-3">ファンダイビング</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__submenu nav__submenu--sitemap" href="<?php echo esc_url(home_url('price')); ?>#plan-4">スペシャル<br class="u-mobile" />ダイビング</a>
             </li>
           </ul>
           <ul class="nav__items">
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap menu--margin-top" href="page-faq.html">よくある質問</a>
+              <a class="nav__menu nav__menu--sitemap menu--margin-top" href="<?php echo esc_url(home_url('faq')); ?>">よくある質問</a>
             </li>
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap" href="page-privacypolicy.html">プライバシー<br
+              <a class="nav__menu nav__menu--sitemap" href="<?php echo esc_url(home_url('privacypolicy')); ?>">プライバシー<br
                   class="u-mobile" />ポリシー</a>
             </li>
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap" href="page-terms.html">利用規約</a>
+              <a class="nav__menu nav__menu--sitemap" href="<?php echo esc_url(home_url('terms')); ?>">利用規約</a>
             </li>
             <li class="nav__item">
-              <a class="nav__menu nav__menu--sitemap" href="page-contact.html">お問い合わせ</a>
+              <a class="nav__menu nav__menu--sitemap" href="<?php echo esc_url(home_url('contact')); ?>">お問い合わせ</a>
             </li>
           </ul>
         </div>

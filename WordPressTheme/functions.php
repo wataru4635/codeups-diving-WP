@@ -38,16 +38,20 @@ function enqueue_custom_scripts() {
   wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js', array(), null, true);
   wp_enqueue_script('custom-script', get_theme_file_uri().'/assets/js/script.js', array(), null, true);
 }
+
+// この関数は、抜粋の長さを85文字に設定します。
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 function custom_excerpt_length( $length ) {
      return 85;
 }
+// この関数は、抜粋の「もっと読む」テキストを(...)に設定します。
 add_filter( 'excerpt_length' , 'custom_excerpt_length' , 999 );
-function new_excerpt_more( $more ) {
-  return '...' ;
-  }
-  add_filter( 'excerpt_more' , 'new_excerpt_more' );
-  add_theme_support( 'post-thumbnails' );
+function new_excerpt_more($more) {
+    return '...';
+}
+
+add_filter('excerpt_more', 'new_excerpt_more');
+add_theme_support( 'post-thumbnails' );
 
   // ==========================================================================
   // サイドバーの人気記事

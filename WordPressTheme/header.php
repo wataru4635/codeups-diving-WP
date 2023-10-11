@@ -101,15 +101,12 @@
               <li class="nav__item">
                 <a class="nav__menu" href="<?php echo esc_url(home_url('campaign')); ?>">キャンペーン</a>
               </li>
+              <?php $course_terms = get_terms('campaign_category', array('hide_empty'=>false)); ?>
+                <?php foreach($course_terms as $course_term ) : ?>
               <li class="nav__item">
-                <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">ライセンス取得</a>
+                <a class="nav__submenu" href="<?php echo get_term_link($course_term,'campaign_category'); ?>"><?php echo $course_term->name; ?></a>
               </li>
-              <li class="nav__item">
-                <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">貸切体験ダイビング</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__submenu" href="<?php echo esc_url(home_url('campaign')); ?>">ナイトダイビング</a>
-              </li>
+              <?php endforeach; ?>
               <li class="nav__item">
                 <a class="nav__menu" href="<?php echo esc_url(home_url('about')); ?>">私たちについて</a>
               </li>
@@ -144,15 +141,18 @@
                 <a class="nav__menu" href="<?php echo esc_url(home_url('price')); ?>">料金一覧</a>
               </li>
               <li class="nav__item">
-                <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#price-license">ライセンス講習</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__submenu"
-                  href="<?php echo esc_url(home_url('price')); ?>#price-experienceDiving">体験ダイビング</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#price-fandiving">ファンダイビング</a>
-              </li>
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#plan-1">ライセンス講習</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu"
+                    href="<?php echo esc_url(home_url('price')); ?>#plan-2">体験ダイビング</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#plan-3">ファンダイビング</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__submenu" href="<?php echo esc_url(home_url('price')); ?>#plan-4">スペシャル<br class="u-mobile" />ダイビング</a>
+                </li>
             </ul>
             <ul class="nav__items">
               <li class="nav__item">
