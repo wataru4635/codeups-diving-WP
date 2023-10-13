@@ -42,46 +42,26 @@
         <p class="mv__subtitle">into the ocean</p>
       </div>
       <div class="swiper mv__swiper js-mv-swiper">
-        <div class="swiper-wrapper mv__wrapper">
-          <div class="swiper-slide mv__img">
-            <picture>
-              <source media="(max-width: 767px)"
-                srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp_1.jpg" type="image/jpeg" />
-              <source media="(min-width: 768px)"
-                srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-pc_1.jpg" type="image/jpeg" />
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp_1.jpg"
-                alt="ウミガメが海の中から空を見ている様子" />
-            </picture>
+      <div class="swiper-wrapper mv__wrapper">
+          <?php
+          $group_names = [
+            get_field('mv-img1'),
+            get_field('mv-img2'),
+            get_field('mv-img3'),
+            get_field('mv-img4')
+          ];
+          for ($index = 1; $index <= count($group_names); $index++):
+            $group_name = $group_names[$index - 1];
+            if ($group_name): ?>
+              <div class="swiper-slide mv__img">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="<?php echo $group_name['mv-sp'.$index]; ?>" type="image/webp" />
+                  <source media="(min-width: 768px)" srcset="<?php echo $group_name['mv-pc'.$index]; ?>" type="image/webp" />
+                  <img src="<?php echo $group_name['mv-sp'.$index]; ?>" alt="<?php echo $group_name['mv-alt'.$index]; ?>" />
+                </picture>
+              </div>
+          <?php endif; endfor; ?>
           </div>
-          <div class="swiper-slide mv__img">
-            <picture>
-              <source media="(max-width: 767px)"
-                srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp_2.jpg" type="image/jpeg" />
-              <source media="(min-width: 768px)"
-                srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-pc_2.jpg" type="image/jpeg" />
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp_2.jpg" alt="ウミガメが泳いでいる様子" />
-            </picture>
-          </div>
-          <div class="swiper-slide mv__img">
-            <picture>
-              <source media="(max-width: 767px)"
-                srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp_3.jpg" type="image/jpeg" />
-              <source media="(min-width: 768px)"
-                srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-pc_3.jpg" type="image/jpeg" />
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp_3.jpg" alt="海の上に船が進んでいる様子" />
-            </picture>
-          </div>
-          <div class="swiper-slide mv__img">
-            <picture>
-              <source media="(max-width: 767px)"
-                srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp_4.jpg" type="image/jpeg" />
-              <source media="(min-width: 768px)"
-                srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-pc_4.jpg" type="image/jpeg" />
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-sp_4.jpg" alt="海辺の様子" />
-            </picture>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 

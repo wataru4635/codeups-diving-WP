@@ -127,7 +127,7 @@ if (!sessionStorage.getItem("animationPlayed") && (!lastAccessTime || (Date.now(
   setTimeout(function () {
     enableScroll();
 
-    let swiper = new Swiper(".js-mv-swiper", {
+    var swiper = new Swiper(".js-mv-swiper", {
       loop: true,
       effect: "fade",
       autoplay: {
@@ -183,7 +183,7 @@ if (!sessionStorage.getItem("animationPlayed") && (!lastAccessTime || (Date.now(
   // campaign-swiper
   // ==========================================================================
 
-  let swiper = new Swiper(".js-campaign-swiper", {
+  var swiper = new Swiper(".js-campaign-swiper", {
     slidesPerView: "auto",
     spaceBetween: 24, // スライド間の余白
     speed: 2000, //

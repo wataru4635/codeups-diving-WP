@@ -49,7 +49,8 @@
                 'post_type' => 'voice',
                 'post_status' => 'publish',
                 'posts_per_page' => 1,
-                'orderby' => 'rand'
+                'orderby' => 'date',
+                'order' => 'DESC'
               );
               $the_query = new WP_Query($args);
               if ($the_query->have_posts()) :
@@ -89,7 +90,8 @@
                 'post_type' => 'campaign',
                 'post_status' => 'publish',
                 'posts_per_page' => 2,
-                'orderby' => 'rand'
+                'orderby' => 'date',
+                'order' => 'DESC'
               );
               $the_query = new WP_Query($args);
               if ($the_query->have_posts()) :
