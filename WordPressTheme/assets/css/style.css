@@ -3066,6 +3066,10 @@ textarea {
 	background-color: #408F95;
 }
 
+#wpadminbar {
+	position: fixed;
+}
+
 @media screen and (min-width: 768px) {
 
 .u-desktop {

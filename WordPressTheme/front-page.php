@@ -42,27 +42,28 @@
         <p class="mv__subtitle">into the ocean</p>
       </div>
       <div class="swiper mv__swiper js-mv-swiper">
-      <div class="swiper-wrapper mv__wrapper">
-          <?php
-          $group_names = [
-            get_field('mv-img1'),
-            get_field('mv-img2'),
-            get_field('mv-img3'),
-            get_field('mv-img4')
-          ];
-          for ($index = 1; $index <= count($group_names); $index++):
-            $group_name = $group_names[$index - 1];
-            if ($group_name): ?>
-              <div class="swiper-slide mv__img">
-                <picture>
-                  <source media="(max-width: 767px)" srcset="<?php echo $group_name['mv-sp'.$index]; ?>" type="image/webp" />
-                  <source media="(min-width: 768px)" srcset="<?php echo $group_name['mv-pc'.$index]; ?>" type="image/webp" />
-                  <img src="<?php echo $group_name['mv-sp'.$index]; ?>" alt="<?php echo $group_name['mv-alt'.$index]; ?>" />
-                </picture>
-              </div>
-          <?php endif; endfor; ?>
+        <div class="swiper-wrapper mv__wrapper">
+          <?php 
+            $mv_pc_img = get_field('mv-pc');
+            $mv_sp_img = get_field('mv-sp');
+            $mv_alt = get_field('mv-alt');
+
+            for ($i = 1; $i <= 4; $i++) {
+              $sp_src = $mv_sp_img['mv-sp'.$i];
+              $pc_src = $mv_pc_img['mv-pc'.$i];
+              $alt = $mv_alt['mv-alt'.$i];
+              ?>
+          <div class="swiper-slide mv__img">
+            <picture>
+              <source media="(max-width: 767px)" srcset="<?php echo $sp_src; ?>" type="image/webp" />
+              <source media="(min-width: 768px)" srcset="<?php echo $pc_src; ?>" type="image/webp" />
+              <img src="<?php echo $sp_src; ?>" alt="<?php echo $alt; ?>" />
+            </picture>
           </div>
-    </div>
+          <?php } ?>
+        </div>
+
+      </div>
   </section>
 
   <!-- Campaign -->
@@ -265,15 +266,15 @@
       </div>
       <div class="voice__items voice-cards">
         <?php
-$news_query = new WP_Query(
-	array(
-    'post_type' => 'voice',
-    'post_status' => 'publish',
-    'posts_per_page' => 2,
-    'orderby' => 'rand'
-	)
-);
-?>
+            $news_query = new WP_Query(
+              array(
+                'post_type' => 'voice',
+                'post_status' => 'publish',
+                'posts_per_page' => 2,
+                'orderby' => 'rand'
+              )
+            );
+            ?>
         <?php if ( $news_query->have_posts() ) : ?>
         <?php while ( $news_query->have_posts() ) : ?>
         <?php $news_query->the_post(); ?>
