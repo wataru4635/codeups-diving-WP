@@ -23,9 +23,9 @@
   <section class="page-voice sub-page-voice">
     <div class="page-voice__inner inner">
       <?php
-$cat = get_queried_object(); // 現在のカテゴリ情報を取得
-$cat_name = $cat->name; // カテゴリ名を取得
-?>
+        $cat = get_queried_object(); // 現在のカテゴリ情報を取得
+        $cat_name = $cat->name; // カテゴリ名を取得
+        ?>
       <div class="page-voice__tab common-tab">
         <ul class="common-tab__lists">
           <li class="common-tab__list <?php echo $cat_name === 'ALL' ? 'is-active' : ''; ?>"><a

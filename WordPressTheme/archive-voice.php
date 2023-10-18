@@ -34,6 +34,7 @@
         <?php endforeach; ?>
       </ul>
     </div>
+
     <div class="page-voice__items voice-cards">
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
       <!-- ループ処理(例) -->
@@ -45,7 +46,7 @@
               <p class="voice-card__meta"><?php echo $voiceMeta['meta_1']; ?>代(<?php echo $voiceMeta['meta_2']; ?>)</p>
               <p class="voice-card__label"><?php echo get_the_terms(get_the_ID(), 'voice_category')[0]->name; ?></p>
             </div>
-            <h3 class="voice-card__title"><?php the_title(); // タイトルを表示 ?></h3>
+            <h3 class="voice-card__title"> <?php echo wp_trim_words(get_the_title(), 20, ''); ?></h3>
           </div>
           <div class="voice-card__header-right">
             <figure class="voice-card__img js-slide-animation">

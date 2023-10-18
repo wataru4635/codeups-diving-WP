@@ -118,8 +118,8 @@
                 <div class="campaign-card__body">
                   <p class="campaign-card__text"><?php echo $campaignPrice['campaign-price_1']; ?></p>
                   <div class="campaign-card__price">
-                    <p class="campaign-card__price-before"><?php echo $campaignPrice['campaign-price_2']; ?></p>
-                    <p class="campaign-card__price-after"><?php echo $campaignPrice['campaign-price_3']; ?></p>
+                    <p class="campaign-card__price-before">¥<?php echo $campaignPrice['campaign-price_2']; ?></p>
+                    <p class="campaign-card__price-after">¥<?php echo $campaignPrice['campaign-price_3']; ?></p>
                   </div>
                 </div>
               </div>
@@ -240,7 +240,7 @@
           </div>
           <div class="blog-card__body">
             <time class="blog-card__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y/n/j'); ?></time>
-            <h3 class="blog-card__title"><?php the_title(); // タイトルを表示 ?></h3>
+            <h3 class="blog-card__title"><?php echo wp_trim_words(get_the_title(), 16, '...'); ?></h3>
             <p class="blog-card__text">
               <?php the_excerpt(); ?>
             </p>
@@ -302,7 +302,16 @@
           </div>
           <div class="voice-card__body">
             <p class="voice-card__text">
-              <?php echo get_field("voice_text"); ?>
+              <?php
+                $voice_text = get_field("voice_text");
+                if (strlen($voice_text) > 400) {
+                  echo mb_substr($voice_text, 0, 400, 'UTF-8') . '...';
+                          // 最初の400文字を取得し、それに続けて '...' を追加して出力する
+                } else {
+                          // それ以外の場合、$voice_text をそのまま出力する
+                    echo $voice_text; 
+                }
+                ?>
             </p>
           </div>
         </div>

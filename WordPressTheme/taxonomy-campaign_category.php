@@ -28,9 +28,9 @@
     <div class="page-campaign__inner inner">
 
       <?php
-$cat = get_queried_object(); // 現在のカテゴリ情報を取得
-$cat_name = $cat->name; // カテゴリ名を取得
-?>
+    $cat = get_queried_object(); // 現在のカテゴリ情報を取得
+    $cat_name = $cat->name; // カテゴリ名を取得
+    ?>
 
       <div class="page-campaign__tab common-tab">
         <ul class="common-tab__lists">

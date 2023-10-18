@@ -27,7 +27,7 @@
               <div class="sidebar-post-card__body">
                 <time datetime="<?php the_time('Y-m-d'); ?>"
                   class="sidebar-post-card__date"><?php the_time('Y.n/j'); ?></time>
-                <h3 class="sidebar-post-card__title"><?php the_title(); ?></h3>
+                <h3 class="sidebar-post-card__title"><?php echo wp_trim_words(get_the_title(), 15, '...'); ?></h3>
               </div>
             </div>
           </a>
@@ -115,9 +115,9 @@
               <?php echo $campaignPrice['campaign-price_1']; ?>
               </p>
               <div class="campaign-card__price">
-                <p class="campaign-card__price-before"><?php echo $campaignPrice['campaign-price_2']; ?></p>
+                <p class="campaign-card__price-before">¥<?php echo $campaignPrice['campaign-price_2']; ?></p>
                 <p class="campaign-card__price-after campaign-card__price-after--small">
-                <?php echo $campaignPrice['campaign-price_3']; ?>                </p>
+                ¥<?php echo $campaignPrice['campaign-price_3']; ?></p>
               </div>
             </div>
           </div>

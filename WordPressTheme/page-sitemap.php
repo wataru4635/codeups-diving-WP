@@ -95,6 +95,9 @@
                   class="u-mobile" />ポリシー</a>
             </li>
             <li class="nav__item">
+              <a class="nav__menu nav__menu--sitemap" href="<?php echo esc_url(home_url('sitemap')); ?>">サイトマップ</a>
+            </li>
+            <li class="nav__item">
               <a class="nav__menu nav__menu--sitemap" href="<?php echo esc_url(home_url('terms')); ?>">利用規約</a>
             </li>
             <li class="nav__item">

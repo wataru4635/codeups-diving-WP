@@ -28,9 +28,9 @@
       <div class="page-faq__container">
         <ul class="page-faq__accordion-wrapper faq-accordion-items">
           <?php
-  $faq_group = SCF::get_option_meta('faq-options', 'faq' );
-  foreach ($faq_group as $item):
-?>
+                  $faq_group = SCF::get_option_meta('faq-options', 'faq' );
+                  foreach ($faq_group as $item):
+                  ?>
           <li class="faq-accordion-items__item accordion-item">
             <h3 class="accordion-item__question js-faq-question">
               <?php echo $item['question']; ?>

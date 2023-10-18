@@ -209,4 +209,24 @@ function custom_get_select_values( $values, $options, $args ) {
   }
   return $values;
 }
-add_filter( 'wpcf7_form_tag_data_option', 'custom_get_select_values', 10, 3 );
+
+  // ==========================================================================
+  // voiceの記事タイトルのプレースホルダーの文言の変更
+  // ==========================================================================
+function custom_editor_placeholder($placeholder, $post) {
+  if ($post->post_type == 'voice') {
+      $placeholder = 'タイトルを入力【20字以内で入力してください】';
+  }
+  return $placeholder;
+}
+
+add_filter('enter_title_here', 'custom_editor_placeholder', 10, 2);
+
+/* --------------------------------------------
+ /* 【管理画面】　ACF Options Page の設定 */
+/* -------------------------------------------- */
+if (function_exists('acf_add_options_page')) {
+  acf_add_options_page();
+}
+
+

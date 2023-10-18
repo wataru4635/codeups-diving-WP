@@ -455,3 +455,4 @@ jQuery('.sidebar-accordion__year').click(function () {
   }
 
 });
+

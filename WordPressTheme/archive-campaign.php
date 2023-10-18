@@ -53,16 +53,15 @@
             </div>
             <div class="campaign-card__inner">
               <div class="campaign-card__head">
-                <p class="campaign-card__label"><?php echo get_the_terms(get_the_ID(), 'campaign_category')[0]->name; ?>
-                </p>
-                <h3 class="campaign-card__title"><?php the_title(); // タイトルを表示 ?></h3>
+                <p class="campaign-card__label" <h3 class="><?php echo get_the_terms(get_the_ID(), 'campaign_category')[0]->name; ?>
+                </p>campaign-card__title"><?php the_title(); // タイトルを表示 ?></h3>
               </div>
               <?php $campaignPrice = get_field('campaign-price');?>
               <div class="campaign-card__body">
                 <p class="campaign-card__text"><?php echo $campaignPrice['campaign-price_1']; ?></p>
                 <div class="campaign-card__price">
-                  <p class="campaign-card__price-before"><?php echo $campaignPrice['campaign-price_2']; ?></p>
-                  <p class="campaign-card__price-after"><?php echo $campaignPrice['campaign-price_3']; ?></p>
+                  <p class="campaign-card__price-before">¥<?php echo $campaignPrice['campaign-price_2']; ?></p>
+                  <p class="campaign-card__price-after">¥<?php echo $campaignPrice['campaign-price_3']; ?></p>
                 </div>
                 <?php $campaignDescription = get_field('campaign-description');?>
                 <p class="campaign-card__detail u-desktop">

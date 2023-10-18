@@ -196,7 +196,6 @@ jQuery(function ($) {
   // ==========================================================================
 
   $(function () {
-    $('body').css('position', 'relative'); // bodyにposition: relativeを追加
     var pageTop = $(".js-to-top");
     var footer = $(".footer");
     var footerHeight = footer.innerHeight();
