@@ -53,46 +53,46 @@ function new_excerpt_more($more) {
 add_filter('excerpt_more', 'new_excerpt_more');
 add_theme_support( 'post-thumbnails' );
 
-  // ==========================================================================
-  // サイドバーの人気記事
-  // ==========================================================================
+// ==========================================================================
+// サイドバーの人気記事
+// ==========================================================================
 
 // カスタムメタビューの更新
 function update_custom_meta_views() {
   global $post;
-  if ( 'publish' === get_post_status($post) && is_single() && !is_user_logged_in() && !is_robots() ) {
+  if ('publish' === get_post_status($post) && is_single() && !is_user_logged_in() && !is_robots()) {
       $views = intval(get_post_meta($post->ID, '_custom_meta_views', true));
       update_post_meta($post->ID, '_custom_meta_views', ($views + 1));
   }
 }
-add_action( 'wp_head', 'update_custom_meta_views' );
+add_action('wp_head', 'update_custom_meta_views');
 
 // 投稿一覧にViewsカラムを追加
 function add_column_custom_meta_views($columns) {
   $columns['views'] = 'Views';
   return $columns;
 }
-add_filter( 'manage_posts_columns', 'add_column_custom_meta_views' );
+add_filter('manage_posts_columns', 'add_column_custom_meta_views');
 
 // Viewsカラムのコンテンツを表示
 function add_column_custom_meta_views_content($column_name, $post_id) {
-  if ( 'views' === $column_name ) {
+  if ('views' === $column_name) {
       $views = intval(get_post_meta($post_id, '_custom_meta_views', true));
       echo $views;
   }
 }
-add_action( 'manage_posts_custom_column', 'add_column_custom_meta_views_content', 10, 2 );
+add_action('manage_posts_custom_column', 'add_column_custom_meta_views_content', 10, 2);
 
 // Viewsカラムを並び替え可能にする
 function sortable_column_custom_meta_views($columns) {
   $columns['views'] = 'Views';
   return $columns;
 }
-add_filter( 'manage_edit-post_sortable_columns', 'sortable_column_custom_meta_views' );
+add_filter('manage_edit-post_sortable_columns', 'sortable_column_custom_meta_views');
 
 // Viewsで投稿を並び替える
 function custom_orderby_custom_meta_views($vars) {
-  if ( isset($vars['orderby']) && 'views' == $vars['orderby'] ) {
+  if (isset($vars['orderby']) && 'views' == $vars['orderby']) {
       $vars = array_merge($vars, array(
           'meta_key' => '_custom_meta_views',
           'orderby' => 'meta_value_num'
@@ -100,7 +100,8 @@ function custom_orderby_custom_meta_views($vars) {
   }
   return $vars;
 }
-add_filter( 'request', 'custom_orderby_custom_meta_views' );
+add_filter('request', 'custom_orderby_custom_meta_views');
+
 
   // ==========================================================================
   // サイドバーのアーカイブ

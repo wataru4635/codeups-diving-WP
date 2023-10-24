@@ -1,8 +1,5 @@
 <?php get_header(); ?>
 <main>
-
-  <!-- 下層ページのメインビュー -->
-
   <section class="sub-mv">
     <div class="sub-mv__header">
       <h1 class="sub-mv__title"><?php echo get_the_time('Y年n月の記事'); ?></h1>
@@ -18,38 +15,33 @@
     </div>
   </section>
 
-  <!-- パンくずリスト -->
   <?php get_template_part('parts/breadcrumb') ?>
-
-  <!-- page-blog-two-columns -->
 
   <section class="two-columns sub-two-columns">
     <div class="two-columns__inner inner">
       <div class="two-columns__container">
-        <!-- メインコンテンツ -->
 
+        <!-- メインコンテンツ -->
         <div class="two-columns__main">
           <div class="mainContent">
             <div class="mainContent__items blog-cards blog-cards--column">
               <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-              <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
-                <div class="blog-card__header">
-                  <figure class="blog-card__img">
-                    <?php if (has_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail(); ?>
-                    <?php else : ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/noimg.png" alt="">
-                    <?php endif; ?>
-                  </figure>
-                </div>
-                <div class="blog-card__body">
-                  <time class="blog-card__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y/n/j'); ?></time>
-                  <h3 class="blog-card__title"><?php the_title(); ?></h3>
-                  <p class="blog-card__text">
-                    <?php the_excerpt(); ?>
-                  </p>
-                </div>
-              </a>
+                <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
+                  <div class="blog-card__header">
+                    <figure class="blog-card__img">
+                      <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail(); ?>
+                      <?php else : ?>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/noimg.png" alt="">
+                      <?php endif; ?>
+                    </figure>
+                  </div>
+                  <div class="blog-card__body">
+                    <time class="blog-card__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y/n/j'); ?></time>
+                    <h3 class="blog-card__title"><?php the_title(); ?></h3>
+                    <p class="blog-card__text"><?php the_excerpt(); ?></p>
+                  </div>
+                </a>
               <?php endwhile; endif; ?>
             </div>
             <div class="mainContent__pagination wp-pagenavi">
@@ -57,8 +49,8 @@
             </div>
           </div>
         </div>
-        <!-- サイドバーコンテンツ -->
 
+        <!-- サイドバーコンテンツ -->
         <?php get_sidebar(''); ?>
 
       </div>
