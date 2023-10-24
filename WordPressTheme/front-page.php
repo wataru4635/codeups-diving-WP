@@ -88,7 +88,7 @@
               array(
                 'post_type' => 'campaign',
                 'post_status' => 'publish',
-                'posts_per_page'=> -1,
+                'posts_per_page'=> 8,
                 'orderby' => "rand"
              )
             );
