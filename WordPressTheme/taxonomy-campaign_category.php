@@ -60,41 +60,42 @@
                             </div>
                             <div class="campaign-card__inner">
                                 <div class="campaign-card__head">
-                                    <p class="campaign-card__label"><?php echo get_the_terms(get_the_ID(), 'campaign_category')[0]->name; ?>
-                                    </p>
-                                    <h3 class="campaign-card__title"><?php the_title(); // タイトルを表示 ?></h3>
+                                    <p class="campaign-card__label"><?php echo get_the_terms(get_the_ID(), 'campaign_category')[0]->name; ?></p>
+                                    <h3 class="campaign-card__title"><?php echo wp_trim_words(get_the_title(), 20, '...'); ?></h3>
                                 </div>
-                                <?php $campaignPrice = get_field('campaign-price'); ?>
-                                <div class="campaign-card__body">
-                                    <p class="campaign-card__text"><?php echo $campaignPrice['campaign-price_1']; ?></p>
-                                    <div class="campaign-card__price">
-                                        <p class="campaign-card__price-before"><?php echo $campaignPrice['campaign-price_2']; ?></p>
-                                        <p class="campaign-card__price-after"><?php echo $campaignPrice['campaign-price_3']; ?></p>
+
+                                <?php $campaignPrice = get_field('campaign-price');
+                                if ($campaignPrice) :?>
+                                    <div class="campaign-card__body">
+                                        <p class="campaign-card__text"><?php echo $campaignPrice['campaign-price_1']; ?></p>
+                                        <div class="campaign-card__price">
+                                            <p class="campaign-card__price-before">¥<?php echo $campaignPrice['campaign-price_2']; ?></p>
+                                            <p class="campaign-card__price-after">¥<?php echo $campaignPrice['campaign-price_3']; ?></p>
+                                        </div>
                                     </div>
-                                    <?php $campaignDescription = get_field('campaign-description'); ?>
+                                <?php endif; ?>
+
+                                <?php $campaignDescription = get_field('campaign-description');
+                                if ($campaignDescription) :?>
                                     <p class="campaign-card__detail u-desktop">
                                         <?php echo $campaignDescription['campaign-description_1']; ?>
                                     </p>
                                     <div class="campaign-card__footer u-desktop">
                                         <p class="campaign-card__date"><?php echo $campaignDescription['campaign-description_2']; ?></p>
-                                        <p class="campaign-card__contact">
-                                            ご予約・お問い合わせはコチラ
-                                        </p>
+                                        <p class="campaign-card__contact">ご予約・お問い合わせはコチラ</p>
                                         <div class="campaign-card__button">
-                                            <a href="<?php echo esc_url(home_url('contact')); ?>" class="section-button">Contact
-                                                us<span></span></a>
+                                            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="section-button">Contact us<span></span></a>
                                         </div>
                                     </div>
-                                </div>
+                                <?php endif; ?>
                             </div>
                         </div>
-                    <?php endwhile;
-                    endif; ?>
+                    <?php endwhile; endif; ?>
                 </div>
             </div>
 
             <!-- ページネーション -->
-            <div class="page-campaign__pagination wp-pagenavi">
+            <div class="page-campaign__pagination">
                 <?php wp_pagenavi(); ?>
             </div>
 

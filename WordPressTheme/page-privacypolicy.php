@@ -2,7 +2,6 @@
 <main>
 
   <!-- 下層ページのメインビュー -->
-
   <section class="sub-mv">
     <div class="sub-mv__header">
       <h1 class="sub-mv__title">privacy policy</h1>
@@ -25,16 +24,18 @@
   <?php get_template_part('parts/breadcrumb') ?>
 
   <!-- page-privacy policy -->
-  <section class="page-privacypolicy sub-page-privacypolicy">
-    <div class="page-privacypolicy__inner inner">
-      <div class="page-privacypolicy__header">
-        <h2 class="page-privacypolicy__title"><?php the_title(); // タイトルを表示 ?></h2>
+  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <section class="page-privacypolicy sub-page-privacypolicy">
+      <div class="page-privacypolicy__inner inner">
+        <div class="page-privacypolicy__header">
+          <h2 class="page-privacypolicy__title"><?php the_title(); // タイトルを表示 ?></h2>
+        </div>
+        <div class="page-privacypolicy__container">
+          <?php the_content(); ?>
+        </div>
       </div>
-      <div class="page-privacypolicy__container">
-        <?php the_content();?>
-      </div>
-    </div>
-  </section>
+    </section>
+  <?php endwhile; endif;?>
 
 </main>
 <?php get_footer(); ?>

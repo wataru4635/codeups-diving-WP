@@ -12,7 +12,7 @@
         申し訳ありません。<br />お探しのページが見つかりません。
       </p>
       <div class="page-404__button">
-        <a href="<?php echo esc_url(home_url()); ?>/index.php" class="section-button section-button--white">Page TOP<span></span></a>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="section-button section-button--white">Page TOP<span></span></a>
       </div>
     </div>
   </section>

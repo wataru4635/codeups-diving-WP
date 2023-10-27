@@ -52,9 +52,11 @@
                         <div class="voice-card__header">
                             <div class="voice-card__header-left">
                                 <div class="voice-card__info">
-                                    <?php $voiceMeta = get_field('voice_meta'); ?>
+                                    <?php $voiceMeta = get_field('voice_meta'); 
+                                    if ($voiceMeta) :?>
                                     <p class="voice-card__meta"><?php echo $voiceMeta['meta_1']; ?>
                                         代(<?php echo $voiceMeta['meta_2']; ?>)</p>
+                                        <?php endif; ?>
                                     <p class="voice-card__label"><?php echo get_the_terms(get_the_ID(), 'voice_category')[0]->name; ?></p>
                                 </div>
                                 <h3 class="voice-card__title"><?php the_title(); // タイトルを表示 ?></h3>
@@ -76,11 +78,10 @@
                             </p>
                         </div>
                     </div>
-                <?php endwhile;
-                endif; ?>
+                <?php endwhile; endif; ?>
             </div>
 
-            <div class="page-voice__pagination wp-pagenavi">
+            <div class="page-voice__pagination">
                 <?php wp_pagenavi(); ?>
             </div>
 

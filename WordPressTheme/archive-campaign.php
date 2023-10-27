@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <main>
   <section class="sub-mv">
     <div class="sub-mv__header">
@@ -29,6 +30,7 @@
           <?php endforeach; ?>
         </ul>
       </div>
+
       <div class="page-campaign__container">
         <div class="page-campaign__cards">
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -40,20 +42,27 @@
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/noimg.png" alt="<?php the_title(); ?>アイキャッチ画像">
                 <?php endif; ?>
               </div>
+
               <div class="campaign-card__inner">
                 <div class="campaign-card__head">
-                  <p class="campaign-card__label">
-                    <h3 class="campaign-card__title"><?php echo get_the_terms(get_the_ID(), 'campaign_category')[0]->name; ?></h3>
-                  </p>
+                <p class="campaign-card__label"><?php echo get_the_terms(get_the_ID(), 'campaign_category')[0]->name; ?>
+                </p>
+                <h3 class="campaign-card__title"><?php the_title(); // タイトルを表示 ?></h3>
                 </div>
-                <?php $campaignPrice = get_field('campaign-price');?>
-                <div class="campaign-card__body">
-                  <p class="campaign-card__text"><?php echo $campaignPrice['campaign-price_1']; ?></p>
-                  <div class="campaign-card__price">
-                    <p class="campaign-card__price-before">¥<?php echo $campaignPrice['campaign-price_2']; ?></p>
-                    <p class="campaign-card__price-after">¥<?php echo $campaignPrice['campaign-price_3']; ?></p>
+
+                <?php $campaignPrice = get_field('campaign-price');
+                if ($campaignPrice) :?>
+                  <div class="campaign-card__body">
+                    <p class="campaign-card__text"><?php echo $campaignPrice['campaign-price_1']; ?></p>
+                    <div class="campaign-card__price">
+                      <p class="campaign-card__price-before">¥<?php echo $campaignPrice['campaign-price_2']; ?></p>
+                      <p class="campaign-card__price-after">¥<?php echo $campaignPrice['campaign-price_3']; ?></p>
+                    </div>
                   </div>
-                  <?php $campaignDescription = get_field('campaign-description');?>
+                <?php endif; ?>
+
+                <?php $campaignDescription = get_field('campaign-description');
+                if ($campaignDescription) :?>
                   <p class="campaign-card__detail u-desktop">
                     <?php echo $campaignDescription['campaign-description_1']; ?>
                   </p>
@@ -61,19 +70,22 @@
                     <p class="campaign-card__date"><?php echo $campaignDescription['campaign-description_2']; ?></p>
                     <p class="campaign-card__contact">ご予約・お問い合わせはコチラ</p>
                     <div class="campaign-card__button">
-                      <a href="<?php echo esc_url(home_url('contact')); ?>" class="section-button">Contact us<span></span></a>
+                      <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="section-button">Contact us<span></span></a>
                     </div>
                   </div>
-                </div>
+                <?php endif; ?>
               </div>
             </div>
           <?php endwhile; endif;?>
         </div>
       </div>
-      <div class="page-campaign__pagination wp-pagenavi">
+
+      <div class="page-campaign__pagination">
         <?php wp_pagenavi(); ?>
       </div>
     </div>
   </section>
 </main>
+
 <?php get_footer(); ?>
+

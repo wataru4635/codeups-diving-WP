@@ -53,6 +53,7 @@ html {
 body {
 	line-height: 1.5;
 	min-height: 100vh;
+	position: relative;
 	text-rendering: optimizeSpeed;
 }
 
@@ -884,7 +885,11 @@ button,
 }
 
 select {
-	background-color: #fff;
+	background-color: #fff; /*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/ /*↓デフォルトではないアイコンを使う場合は入力する*/
+	background-image: url(../images/common/contact-arrow.png);
+	background-position: right 12px center;
+	background-repeat: no-repeat;
+	background-size: 0.75rem 0.625rem;
 	border: none;
 	border: 1px solid #408F95; /*↓リセットCSS */
 	border-radius: 0;
@@ -894,7 +899,7 @@ select {
 	font-family: inherit; /*↓カスタム */
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
-	width: 100%; /*↓デフォルトのアイコンを消す場合はコメントアウト（noneにする）*/ /*↓デフォルトではないアイコンを使う場合は入力する*/
+	width: 100%;
 }
 
 select:focus {
@@ -962,19 +967,6 @@ textarea {
 .contact-form__select {
 	margin-top: 1.0625rem;
 	position: relative;
-}
-
-.contact-form__select::after {
-	border-color: #408F95 transparent transparent transparent;
-	border-style: solid;
-	border-width: 0.625rem 0.375rem 0 0.375rem;
-	content: "";
-	height: 0;
-	position: absolute;
-	right: 0.5625rem;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 0;
 }
 
 .contact-form__checkbox {
@@ -1255,6 +1247,7 @@ textarea {
 }
 
 .footer__nav {
+	color: #fff;
 	margin-left: auto;
 	margin-top: 0.9375rem;
 	max-width: 33.125rem;
@@ -1264,6 +1257,16 @@ textarea {
 	display: block;
 	font-size: 0.75rem;
 	text-align: center;
+}
+
+.footer__nav {
+	color: #fff;
+}
+
+.footer__nav a.nav__menu--sitemap::before {
+	background: url(../images/common/starfish.png);
+	background-position: center;
+	background-size: contain;
 }
 
 .gallery__images {
@@ -1387,6 +1390,7 @@ textarea {
 
 .header__sp-nav {
 	background: #408F95;
+	color: #fff;
 	display: none;
 	height: 100vh;
 	left: 0;
@@ -1654,7 +1658,7 @@ textarea {
 	width: 100%;
 }
 
-.nav__item:hover {
+.nav__item a:hover {
 	opacity: 0.7;
 }
 
@@ -1665,7 +1669,6 @@ textarea {
 }
 
 .nav__menu {
-	color: #fff;
 	display: block;
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 1rem;
@@ -1688,7 +1691,6 @@ textarea {
 }
 
 .nav__submenu {
-	color: #fff;
 	display: block;
 	font-family: "Noto Sans JP", sans-serif;
 	font-size: 1rem;
@@ -1700,26 +1702,6 @@ textarea {
 
 .nav__list {
 	width: 50%;
-}
-
-.nav__menu--sitemap {
-	color: #0D2936;
-}
-
-.nav__submenu--sitemap {
-	color: #0D2936;
-}
-
-.nav__menu--sitemap::before {
-	background: url(../images/common/sitemap-starfish.png);
-	background-position: center;
-	background-size: contain;
-	content: "";
-	height: 1.125rem;
-	left: 0;
-	position: absolute;
-	top: 0.75rem;
-	width: 1.125rem;
 }
 
 .page-404 {
@@ -2069,6 +2051,22 @@ textarea {
 	top: 0.25rem;
 	width: 7.5rem;
 	z-index: -1;
+}
+
+.page-sitemap__nav {
+	color: #0D2936;
+}
+
+.page-sitemap__nav a.nav__menu--sitemap::before {
+	background: url(../images/common/sitemap-starfish.png);
+	background-position: center;
+	background-size: contain;
+	content: "";
+	height: 1.125rem;
+	left: 0;
+	position: absolute;
+	top: 0.75rem;
+	width: 1.125rem;
 }
 
 .page-terms__inner.inner {
@@ -2748,6 +2746,11 @@ textarea {
 
 .single-mainContent__pagination {
 	margin-top: 5rem;
+	text-align: center;
+}
+
+.single-mainContent__pagination a {
+	display: inline-block;
 }
 
 .sns__facebook {

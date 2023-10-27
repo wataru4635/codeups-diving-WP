@@ -67,14 +67,14 @@
             <div class="gallery__images">
                 <?php
                 $repeat_item = SCF::get_option_meta( 'gallery-options', 'gallery' );
-                foreach ($repeat_item as $fields ) {
+                foreach ($repeat_item as $fields ) :
                     $image_url = wp_get_attachment_image_src($fields['gallery_img'] , 'full');
                     $image_title = get_the_title($fields['gallery_img']); // 画像のタイトルを取得
                 ?>
                 <div class="gallery__img js-modal">
                     <img src=" <?php echo $image_url[0]; ?>" alt="<?php echo $image_title; ?>">
                 </div>
-                <?php } ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

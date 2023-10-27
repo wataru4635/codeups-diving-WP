@@ -65,10 +65,10 @@
                                     <?php echo $item[$plan['course_key'][0]]; ?> <br class="u-mobile"/><?php echo $item[$plan['course_key'][1]]; ?>
                                 </dt>
                                 <dd class="price-table__price"><?php echo $item[$plan['course_key'][2]]; ?></dd>
-                            <?php endforeach ?>
+                            <?php endforeach; ?>
                         </dl>
                     </div>
-                <?php endforeach ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

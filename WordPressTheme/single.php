@@ -43,16 +43,14 @@
                             <div class="single-mainContent__block">
                                 <?php the_content(); ?>
                             </div>
-                            <div class="single-mainContent__pagination wp-pagenavi">
+                            <div class="single-mainContent__pagination">
                                 <?php 
                                     $prev = get_previous_post();
                                     $next = get_next_post();
-
                                     if (!empty($prev)) {
                                         $prev_url = esc_url(get_permalink($prev->ID));
                                         echo '<a href="' . $prev_url . '" class="pagination__prev"></a>';
                                     }
-
                                     if (!empty($next)) {
                                         $next_url = esc_url(get_permalink($next->ID));
                                         echo '<a href="' . $next_url . '" class="pagination__next"></a>';
@@ -63,7 +61,9 @@
                     <?php endwhile; endif; ?>
                 </div>
                 <!-- サイドバーコンテンツ -->
-                <?php get_sidebar(''); ?>
+                <div class="two-columns__side">
+                    <?php get_sidebar(''); ?>
+                </div>
             </div>
         </div>
     </section>

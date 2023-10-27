@@ -20,3 +20,19 @@
     display: none;
   }
 }
+
+ .page-sitemap__nav {
+  color: $text-color;
+ }
+
+ .page-sitemap__nav a.nav__menu--sitemap::before {
+  background: url(../images/common/sitemap-starfish.png);
+  background-position: center;
+  background-size: contain;
+  content: "";
+  position: absolute;
+  width: rem(18);
+  height: rem(18);
+  top: rem(12);
+  left: 0;
+}

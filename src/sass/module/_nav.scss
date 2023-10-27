@@ -16,7 +16,7 @@
   transition: opacity 0.3s;
 }
 
-.nav__item:hover {
+.nav__item a:hover {
   opacity: 0.7;
 }
 
@@ -27,7 +27,6 @@
 }
 
 .nav__menu {
-  color: $white;
   font-weight: $bold;
   font-size: rem(16);
   line-height: 1.125;
@@ -56,7 +55,6 @@
 }
 
 .nav__submenu {
-  color: $white;
   font-weight: $regular;
   font-size: rem(16);
   line-height: 1.125;
@@ -75,23 +73,3 @@
   }
 }
 
-.nav__menu--sitemap {
-  color: $text-color;
-}
-
-.nav__submenu--sitemap {
-  color: $text-color;
-}
-
-
-.nav__menu--sitemap::before {
-  background: url(../images/common/sitemap-starfish.png);
-  background-position: center;
-  background-size: contain;
-  content: "";
-  position: absolute;
-  width: rem(18);
-  height: rem(18);
-  top: rem(12);
-  left: 0;
-}

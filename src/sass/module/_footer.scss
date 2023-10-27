@@ -54,6 +54,7 @@
   margin-top: rem(15);
   max-width: rem(530);
   margin-left: auto;
+  color: $white;
   @include mq("md") {
     margin-top: rem(15);
     margin-left: 0;
@@ -68,4 +69,15 @@
   @include mq("md") {
     font-size: rem(14);
   }
+}
+
+.footer__nav {
+  color: #fff;
+ }
+
+
+.footer__nav a.nav__menu--sitemap::before {
+  background: url(../images/common/starfish.png);
+  background-position: center;
+  background-size: contain;
 }

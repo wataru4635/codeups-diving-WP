@@ -81,4 +81,9 @@
 
 .single-mainContent__pagination {
   margin-top: rem(80);
+  text-align: center;
+}
+
+.single-mainContent__pagination a {
+  display: inline-block;
 }

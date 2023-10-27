@@ -44,7 +44,7 @@
                 </a>
               <?php endwhile; endif; ?>
             </div>
-            <div class="mainContent__pagination wp-pagenavi">
+            <div class="mainContent__pagination">
               <?php wp_pagenavi(); ?>
             </div>
           </div>

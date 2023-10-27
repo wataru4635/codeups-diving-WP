@@ -47,7 +47,7 @@
             $mv_sp_img = get_field('mv-sp');
             $mv_alt = get_field('mv-alt');
 
-            for ($i = 1; $i <= 4; $i++) {
+            for ($i = 1; $i <= 4; $i++) :
               $sp_src = $mv_sp_img['mv-sp'.$i];
               $pc_src = $mv_pc_img['mv-pc'.$i];
               $alt = $mv_alt['mv-alt'.$i];
@@ -59,12 +59,11 @@
                   <img src="<?php echo $sp_src; ?>" alt="<?php echo $alt; ?>" />
                 </picture>
               </div>
-          <?php } ?>
+          <?php endfor; ?>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Campaign -->
   <section class="campaign top-campaign">
     <div class="campaign__inner inner">
@@ -89,12 +88,11 @@
                 'post_status' => 'publish',
                 'posts_per_page'=> 8,
                 'orderby' => "rand"
-             )
+            )
             );
           ?>
           <?php if ( $news_query->have_posts() ) : ?>
-            <?php while ( $news_query->have_posts() ) : ?>
-              <?php $news_query->the_post(); ?>
+            <?php while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
               <div class="swiper-slide campaign__card">
                 <div class="campaign-card">
                   <div class="campaign-card__img">
@@ -112,274 +110,269 @@
                       </p>
                       <h3 class="campaign-card__title"><?php the_title(); // タイトルを表示 ?></h3>
                     </div>
-                    <?php $campaignPrice = get_field('campaign-price');?>
-                    <div class="campaign-card__body">
-                      <p class="campaign-card__text"><?php echo $campaignPrice['campaign-price_1']; ?></p>
-                      <div class="campaign-card__price">
-                        <p class="campaign-card__price-before">¥<?php echo $campaignPrice['campaign-price_2']; ?></p>
-                        <p class="campaign-card__price-after">¥<?php echo $campaignPrice['campaign-price_3']; ?></p>
+                    <?php $campaignPrice = get_field('campaign-price');
+                    if ($campaignPrice):?>
+                      <div class="campaign-card__body">
+                        <p class="campaign-card__text"><?php echo $campaignPrice['campaign-price_1']; ?></p>
+                        <div class="campaign-card__price">
+                          <p class="campaign-card__price-before">¥<?php echo $campaignPrice['campaign-price_2']; ?></p>
+                          <p class="campaign-card__price-after">¥<?php echo $campaignPrice['campaign-price_3']; ?></p>
+                        </div>
                       </div>
-                    </div>
+                    <?php endif; ?>
                   </div>
                 </div>
               </div>
-            <?php endwhile; ?>
-          <?php endif; ?>
-          <?php wp_reset_postdata(); ?>
+            <?php endwhile; wp_reset_postdata(); endif; ?>
         </div>
       </div>
       <div class="campaign__button">
-        <a href="<?php echo esc_url(home_url('campaign')); ?>" class="section-button">View more<span></span></a>
+        <a href="<?php echo esc_url(home_url('/campaign/')); ?>" class="section-button">View more<span></span></a>
       </div>
     </div>
   </section>
 
-<!-- About us -->
-<section class="about top-about">
-  <div class="about__inner inner">
-    <div class="about__header section-header">
-      <p class="section-header__engtitle">about us</p>
-      <h2 class="section-header__jptitle">私たちについて</h2>
-    </div>
-    <div class="about__container">
-      <div class="about__images">
-        <div class="about__img-left">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-left.jpg"
-            alt="屋根の上にシーサーがのっている様子" />
-        </div>
-        <div class="about__img-right">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-right.jpg"
-            alt="ゴールデンバタフライフィッシュが泳いでいる様子" />
-        </div>
+  <!-- About us -->
+  <section class="about top-about">
+    <div class="about__inner inner">
+      <div class="about__header section-header">
+        <p class="section-header__engtitle">about us</p>
+        <h2 class="section-header__jptitle">私たちについて</h2>
       </div>
-      <div class="about__body">
-        <h3 class="about__title">
-          Dive into<br />
-          the Ocean
-        </h3>
-        <div class="about__body-left">
-          <p class="about__text">
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-          </p>
-          <div class="about__button">
-            <a href="<?php echo esc_url(home_url('about')); ?>" class="section-button">View more<span></span></a>
+      <div class="about__container">
+        <div class="about__images">
+          <div class="about__img-left">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-left.jpg"
+              alt="屋根の上にシーサーがのっている様子" />
+          </div>
+          <div class="about__img-right">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about-right.jpg"
+              alt="ゴールデンバタフライフィッシュが泳いでいる様子" />
+          </div>
+        </div>
+        <div class="about__body">
+          <h3 class="about__title">
+            Dive into<br />
+            the Ocean
+          </h3>
+          <div class="about__body-left">
+            <p class="about__text">
+              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />
+              ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
+            </p>
+            <div class="about__button">
+              <a href="<?php echo esc_url(home_url('/about/')); ?>" class="section-button">View more<span></span></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Information -->
-<section class="information top-information">
-  <div class="information__inner inner">
-    <div class="information__header section-header">
-      <p class="section-header__engtitle">information</p>
-      <h2 class="section-header__jptitle">ダイビング情報</h2>
-    </div>
-    <div class="information__media information-card">
-      <div class="information-card__img js-slide-animation">
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/information.jpg"
-          alt="ゴールデンバタフライフィッシュが中心にたくさんの魚が泳いでいる様子" />
+  <!-- Information -->
+  <section class="information top-information">
+    <div class="information__inner inner">
+      <div class="information__header section-header">
+        <p class="section-header__engtitle">information</p>
+        <h2 class="section-header__jptitle">ダイビング情報</h2>
       </div>
-      <div class="information-card__body">
-        <h3 class="information-card__title">ライセンス講習</h3>
-        <p class="information-card__text">
-          当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br />
-          正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。
-        </p>
-        <div class="information-card__button">
-          <a href="<?php echo esc_url(home_url('information')); ?>" class="section-button">View more<span></span></a>
+      <div class="information__media information-card">
+        <div class="information-card__img js-slide-animation">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/information.jpg"
+            alt="ゴールデンバタフライフィッシュが中心にたくさんの魚が泳いでいる様子" />
+        </div>
+        <div class="information-card__body">
+          <h3 class="information-card__title">ライセンス講習</h3>
+          <p class="information-card__text">
+            当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br />
+            正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。
+          </p>
+          <div class="information-card__button">
+            <a href="<?php echo esc_url(home_url('/information/')); ?>" class="section-button">View more<span></span></a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- Blog -->
-<section class="blog top-blog">
-  <div class="blog__inner inner">
-    <div class="blog__header section-header">
-      <p class="section-header__engtitle section-header__engtitle--white">blog</p>
-      <h2 class="section-header__jptitle section-header__jptitle--white">ブログ</h2>
-    </div>
-    <div class="blog__items blog-cards">
-      <?php
-      $news_query = new WP_Query(
-        array(
-          'post_type' => 'post',
-          'post_status' => 'publish',
-          'posts_per_page' => 3,
-          'orderby'        => 'date',
-          'order'          => 'DESC'
-        )
-      );
-      ?>
-      <?php if ($news_query->have_posts()) : ?>
-        <?php while ($news_query->have_posts()) : ?>
-          <?php $news_query->the_post(); ?>
-          <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
-            <div class="blog-card__header">
-              <figure class="blog-card__img">
-                <?php if (has_post_thumbnail()) : // アイキャッチ画像が設定されてれば表示 ?>
-                  <?php the_post_thumbnail(); ?>
-                <?php else : // なければnoimage画像をデフォルトで表示 ?>
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/noimg.png" alt="">
-                <?php endif; ?>
-              </figure>
-            </div>
-            <div class="blog-card__body">
-              <time class="blog-card__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y/n/j'); ?></time>
-              <h3 class="blog-card__title"><?php echo wp_trim_words(get_the_title(), 16, '...'); ?></h3>
-              <p class="blog-card__text">
-                <?php the_excerpt(); ?>
-              </p>
-            </div>
-          </a>
-        <?php endwhile; ?>
-      <?php endif; ?>
-      <?php wp_reset_postdata(); ?>
-    </div>
-    <div class="blog__button">
-      <a href="<?php echo esc_url(home_url('blog')); ?>" class="section-button">View more<span></span></a>
-    </div>
-  </div>
-</section>
-
-<!-- Voice -->
-<section class="voice top-voice">
-  <div class="voice__inner inner">
-    <div class="voice__header section-header">
-      <p class="section-header__engtitle">voice</p>
-      <h2 class="section-header__jptitle">お客様の声</h2>
-    </div>
-    <div class="voice__items voice-cards">
-      <?php
-      $news_query = new WP_Query(
-        array(
-          'post_type' => 'voice',
-          'post_status' => 'publish',
-          'posts_per_page' => 2,
-          'orderby' => 'rand'
-        )
-      );
-      ?>
-      <?php if ($news_query->have_posts()) : ?>
-        <?php while ($news_query->have_posts()) : ?>
-          <?php $news_query->the_post(); ?>
-          <div class="voice-cards__item voice-card">
-            <div class="voice-card__header">
-              <div class="voice-card__header-left">
-                <div class="voice-card__info">
-                  <?php $voiceMeta = get_field('voice_meta'); ?>
-                  <p class="voice-card__meta"><?php echo $voiceMeta['meta_1']; ?>代(<?php echo $voiceMeta['meta_2']; ?>)</p>
-                  <p class="voice-card__label"><?php echo get_the_terms(get_the_ID(), 'voice_category')[0]->name; ?></p>
-                </div>
-                <h3 class="voice-card__title"><?php the_title(); // タイトルを表示 ?></h3>
-              </div>
-              <div class="voice-card__header-right">
-                <figure class="voice-card__img js-slide-animation">
+  <!-- Blog -->
+  <section class="blog top-blog">
+    <div class="blog__inner inner">
+      <div class="blog__header section-header">
+        <p class="section-header__engtitle section-header__engtitle--white">blog</p>
+        <h2 class="section-header__jptitle section-header__jptitle--white">ブログ</h2>
+      </div>
+      <div class="blog__items blog-cards">
+        <?php
+        $news_query = new WP_Query(
+          array(
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'posts_per_page' => 3,
+            'orderby'        => 'date',
+            'order'          => 'DESC'
+          )
+        );
+        ?>
+        <?php if ($news_query->have_posts()) : ?>
+          <?php while ($news_query->have_posts()) : ?>
+            <?php $news_query->the_post(); ?>
+            <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
+              <div class="blog-card__header">
+                <figure class="blog-card__img">
                   <?php if (has_post_thumbnail()) : // アイキャッチ画像が設定されてれば表示 ?>
                     <?php the_post_thumbnail(); ?>
                   <?php else : // なければnoimage画像をデフォルトで表示 ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/noimg.png"
-                      alt="<?php the_title(); // タイトルを表示 ?>アイキャッチ画像">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/noimg.png" alt="">
                   <?php endif; ?>
                 </figure>
               </div>
-            </div>
-            <div class="voice-card__body">
-              <p class="voice-card__text">
-                <?php
-                $voice_text = get_field("voice_text");
-                if (strlen($voice_text) > 400) {
-                  echo mb_substr($voice_text, 0, 400, 'UTF-8') . '...';
-                  // 最初の400文字を取得し、それに続けて '...' を追加して出力する
-                } else {
-                  // それ以外の場合、$voice_text をそのまま出力する
-                  echo $voice_text;
-                }
-                ?>
-              </p>
-            </div>
-          </div>
-        <?php endwhile; ?>
-      <?php endif; ?>
-      <?php wp_reset_postdata(); ?>
-    </div>
-    <div class="voice__button">
-      <a href="<?php echo esc_url(home_url('voice')); ?>" class="section-button">View more<span></span></a>
-    </div>
-  </div>
-</section>
-
-<!-- Price -->
-<section class="price top-price">
-  <div class="price__inner inner">
-    <div class="price__header section-header">
-      <p class="section-header__engtitle">price</p>
-      <h2 class="section-header__jptitle">料金一覧</h2>
-    </div>
-    <div class="price__container">
-      <div class="price__img js-slide-animation">
-        <picture>
-          <source media="(max-width: 767px)"
-            srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-sp.jpg" type="image/jpeg" />
-          <source media="(min-width: 768px)"
-            srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg" type="image/jpeg" />
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-sp.jpg" alt="海の生き物が泳ぐ様子" />
-        </picture>
+              <div class="blog-card__body">
+                <time class="blog-card__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y/n/j'); ?></time>
+                <h3 class="blog-card__title"><?php echo wp_trim_words(get_the_title(), 16, '...'); ?></h3>
+                <p class="blog-card__text">
+                  <?php the_excerpt(); ?>
+                </p>
+              </div>
+            </a>
+         <?php endwhile; wp_reset_postdata(); endif; ?>
       </div>
-      <ul class="price__lists">
+      <div class="blog__button">
+        <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="section-button">View more<span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice -->
+  <section class="voice top-voice">
+    <div class="voice__inner inner">
+      <div class="voice__header section-header">
+        <p class="section-header__engtitle">voice</p>
+        <h2 class="section-header__jptitle">お客様の声</h2>
+      </div>
+      <div class="voice__items voice-cards">
         <?php
-          // プランごとに配列にまとめる
-          $plans = [
-            1 => [
-              'title' => SCF::get_option_meta('price-options','plan_1'),
-              'group' => 'price-1',
-              'course_key' => ['course_1', 'subcourse_1', 'price_1']
-            ],
-            2 => [
-              'title' => SCF::get_option_meta('price-options','plan_2'),
-              'group' => 'price-2',
-              'course_key' => ['course_2', 'subcourse_2', 'price_2']
-            ],
-            3 => [
-              'title' => SCF::get_option_meta('price-options','plan_3'),
-              'group' => 'price-3',
-              'course_key' => ['course_3', 'subcourse_3', 'price_3']
-            ],
-            4 => [
-              'title' => SCF::get_option_meta('price-options','plan_4'),
-              'group' => 'price-4',
-              'course_key' => ['course_4', 'subcourse_4', 'price_4']
-            ]
-          ];
+        $news_query = new WP_Query(
+          array(
+            'post_type' => 'voice',
+            'post_status' => 'publish',
+            'posts_per_page' => 2,
+            'orderby' => 'rand'
+          )
+        );
         ?>
-        <?php foreach ($plans as $plan) : ?>
-          <li class="price__list">
-            <h3 class="price__title"><?php echo $plan['title']; ?></h3>
-            <dl class="price__menu">
-              <?php
-                $price_group = SCF::get_option_meta('price-options', $plan['group']);
-                foreach ($price_group as $item) :
-              ?>
-                <dt class="price__text">
-                  <?php echo $item[$plan['course_key'][0]]; ?><?php echo $item[$plan['course_key'][1]]; ?></dt>
-                <dd class="price__price"><?php echo $item[$plan['course_key'][2]]; ?></dd>
-              <?php endforeach ?>
-            </dl>
-          </li>
-        <?php endforeach ?>
-      </ul>
+        <?php if ($news_query->have_posts()) : ?>
+          <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
+            <div class="voice-cards__item voice-card">
+              <div class="voice-card__header">
+                <div class="voice-card__header-left">
+                  <div class="voice-card__info">
+                    <?php
+                    $voiceMeta = get_field('voice_meta');
+                    if ($voiceMeta) :
+                    ?>
+                      <p class="voice-card__meta"><?php echo $voiceMeta['meta_1']; ?>代(<?php echo $voiceMeta['meta_2']; ?>)</p>
+                    <?php endif; ?>
+                    <p class="voice-card__label"><?php echo get_the_terms(get_the_ID(), 'voice_category')[0]->name; ?></p>
+                  </div>
+                  <h3 class="voice-card__title"><?php the_title(); ?></h3>
+                </div>
+                <div class="voice-card__header-right">
+                  <figure class="voice-card__img js-slide-animation">
+                    <?php if (has_post_thumbnail()) : ?>
+                      <?php the_post_thumbnail(); ?>
+                    <?php else : ?>
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/noimg.png"
+                        alt="<?php the_title(); ?>アイキャッチ画像">
+                    <?php endif; ?>
+                  </figure>
+                </div>
+              </div>
+              <div class="voice-card__body">
+                <p class="voice-card__text">
+                  <?php
+                  $voice_text = get_field("voice_text");
+                  if (strlen($voice_text) > 400) {
+                    echo mb_substr($voice_text, 0, 400, 'UTF-8') . '...';
+                  } else {
+                    echo $voice_text; }?>
+                </p>
+              </div>
+            </div>
+          <?php endwhile; wp_reset_postdata(); endif; ?>
+      </div>
+      <div class="voice__button">
+        <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="section-button">View more<span></span></a>
+      </div>
     </div>
-    <div class="price__button">
-      <a href="<?php echo esc_url(home_url('price')); ?>" class="section-button">View more<span></span></a>
+  </section>
+
+  <!-- Price -->
+  <section class="price top-price">
+    <div class="price__inner inner">
+      <div class="price__header section-header">
+        <p class="section-header__engtitle">price</p>
+        <h2 class="section-header__jptitle">料金一覧</h2>
+      </div>
+      <div class="price__container">
+        <div class="price__img js-slide-animation">
+          <picture>
+            <source media="(max-width: 767px)"
+              srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-sp.jpg" type="image/jpeg" />
+            <source media="(min-width: 768px)"
+              srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-pc.jpg" type="image/jpeg" />
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/price-sp.jpg" alt="海の生き物が泳ぐ様子" />
+          </picture>
+        </div>
+        <ul class="price__lists">
+          <?php
+            // プランごとに配列にまとめる
+            $plans = [
+              1 => [
+                'title' => SCF::get_option_meta('price-options','plan_1'),
+                'group' => 'price-1',
+                'course_key' => ['course_1', 'subcourse_1', 'price_1']
+              ],
+              2 => [
+                'title' => SCF::get_option_meta('price-options','plan_2'),
+                'group' => 'price-2',
+                'course_key' => ['course_2', 'subcourse_2', 'price_2']
+              ],
+              3 => [
+                'title' => SCF::get_option_meta('price-options','plan_3'),
+                'group' => 'price-3',
+                'course_key' => ['course_3', 'subcourse_3', 'price_3']
+              ],
+              4 => [
+                'title' => SCF::get_option_meta('price-options','plan_4'),
+                'group' => 'price-4',
+                'course_key' => ['course_4', 'subcourse_4', 'price_4']
+              ]
+            ];
+          ?>
+          <?php foreach ($plans as $plan) : ?>
+            <li class="price__list">
+              <h3 class="price__title"><?php echo $plan['title']; ?></h3>
+              <dl class="price__menu">
+                <?php
+                  $price_group = SCF::get_option_meta('price-options', $plan['group']);
+                  foreach ($price_group as $item) :
+                ?>
+                  <dt class="price__text">
+                    <?php echo $item[$plan['course_key'][0]]; ?><?php echo $item[$plan['course_key'][1]]; ?></dt>
+                  <dd class="price__price"><?php echo $item[$plan['course_key'][2]]; ?></dd>
+                <?php endforeach; ?>
+              </dl>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <div class="price__button">
+        <a href="<?php echo esc_url(home_url('/price/')); ?>" class="section-button">View more<span></span></a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <?php get_footer(); ?>
