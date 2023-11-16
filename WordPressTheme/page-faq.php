@@ -22,30 +22,35 @@
     </section>
 
     <!-- パンくずリスト -->
-    <?php get_template_part('parts/breadcrumb') ?>
+    <?php get_template_part('parts/breadcrumb'); ?>
 
     <!-- page-faq -->
 
     <section class="page-faq sub-page-faq">
         <div class="page-faq__inner inner">
             <div class="page-faq__container">
-                <ul class="page-faq__accordion-wrapper faq-accordion-items">
-                    <?php
-                    $faq_group = SCF::get_option_meta('faq-options', 'faq');
-                    foreach ($faq_group as $item):
-                    ?>
-                        <li class="faq-accordion-items__item accordion-item">
-                            <h3 class="accordion-item__question js-faq-question">
-                                <?php echo $item['question']; ?>
-                            </h3>
-                            <div class="accordion-item__answer js-faq-answer">
-                                <p class="accordion-item__answer-text">
-                                    <?php echo nl2br($item['answer']); ?>
-                                </p>
-                            </div>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+                <?php
+                $fap_group = SCF::get('faq');
+                if ($fap_group): ?>
+
+                    <ul class="page-faq__accordion-wrapper faq-accordion-items">
+                        <?php
+                        $faq_group = SCF::get_option_meta('faq-options', 'faq');
+                        foreach ($faq_group as $item):
+                            ?>
+                            <li class="faq-accordion-items__item accordion-item">
+                                <h3 class="accordion-item__question js-faq-question">
+                                    <?php echo $item['question']; ?>
+                                </h3>
+                                <div class="accordion-item__answer js-faq-answer">
+                                    <p class="accordion-item__answer-text">
+                                        <?php echo nl2br($item['answer']); ?>
+                                    </p>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
         </div>
     </section>

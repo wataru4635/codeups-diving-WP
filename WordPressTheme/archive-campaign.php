@@ -45,9 +45,8 @@
 
               <div class="campaign-card__inner">
                 <div class="campaign-card__head">
-                <p class="campaign-card__label"><?php echo get_the_terms(get_the_ID(), 'campaign_category')[0]->name; ?>
-                </p>
-                <h3 class="campaign-card__title"><?php the_title(); // タイトルを表示 ?></h3>
+                  <p class="campaign-card__label"><?php echo get_the_terms(get_the_ID(), 'campaign_category')[0]->name; ?></p>
+                  <h3 class="campaign-card__title"><?php the_title(); // タイトルを表示 ?></h3>
                 </div>
 
                 <?php $campaignPrice = get_field('campaign-price');
@@ -67,7 +66,11 @@
                     <?php echo $campaignDescription['campaign-description_1']; ?>
                   </p>
                   <div class="campaign-card__footer u-desktop">
-                    <p class="campaign-card__date"><?php echo $campaignDescription['campaign-description_2']; ?></p>
+                    <?php $campaignDescriptionTime = $campaignDescription['campaign-description-time'];
+                    if ($campaignDescriptionTime) : ?>
+                      <p class="campaign-card__date"><?php echo $campaignDescriptionTime['campaign-description-time_1']; ?>&thinsp;-&thinsp;<?php echo $campaignDescriptionTime['campaign-description-time_2']; ?></p>
+                    <?php endif; ?>
+
                     <p class="campaign-card__contact">ご予約・お問い合わせはコチラ</p>
                     <div class="campaign-card__button">
                       <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="section-button">Contact us<span></span></a>
@@ -88,4 +91,5 @@
 </main>
 
 <?php get_footer(); ?>
+
 

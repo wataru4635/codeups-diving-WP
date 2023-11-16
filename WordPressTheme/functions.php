@@ -134,7 +134,9 @@ function change_posts_per_page($query) {
 }
 add_action( 'pre_get_posts', 'change_posts_per_page' );
 
-
+// ==========================================================================
+// SCFでのオプションページ作成
+// ==========================================================================
 
 /**
  * @param string $page_title ページのtitle属性値
@@ -244,5 +246,15 @@ add_filter('enter_title_here', 'custom_editor_placeholder', 10, 2);
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page();
 }
+
+/* --------------------------------------------
+ /* 【管理画面】「campaign」と「voice」投稿タイプからWYSIWYGエディタ（ビジュアルエディタ）を削除
+/* -------------------------------------------- */
+
+function remove_wysiwyg() {
+  remove_post_type_support( 'campaign', 'editor' );
+  remove_post_type_support( 'voice', 'editor' );
+}
+add_action( 'init' , 'remove_wysiwyg' );
 
 
