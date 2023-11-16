@@ -25,7 +25,6 @@
     <?php get_template_part('parts/breadcrumb') ?>
 
     <!-- page-about -->
-
     <section class="page-about sub-page-about">
         <div class="page-about__inner inner">
             <div class="page-about__container">
@@ -56,7 +55,6 @@
     </section>
 
     <!-- gallery -->
-
     <section class="gallery sub-gallery">
         <div class="gallery__inner inner">
             <div class="gallery__header section-header">
@@ -64,18 +62,22 @@
                 <h2 class="section-header__jptitle">フォト</h2>
             </div>
             <div class="gallery__modal js-modal-event"></div>
-            <div class="gallery__images">
-                <?php
-                $repeat_item = SCF::get_option_meta( 'gallery-options', 'gallery' );
-                foreach ($repeat_item as $fields ) :
-                    $image_url = wp_get_attachment_image_src($fields['gallery_img'] , 'full');
-                    $image_title = get_the_title($fields['gallery_img']); // 画像のタイトルを取得
-                ?>
-                <div class="gallery__img js-modal">
-                    <img src=" <?php echo $image_url[0]; ?>" alt="<?php echo $image_title; ?>">
+            <?php
+            $repeat_item = SCF::get('faq');
+            if ($repeat_item): ?>
+                <div class="gallery__images">
+                    <?php
+                    $repeat_item = SCF::get_option_meta('gallery-options', 'gallery');
+                    foreach ($repeat_item as $fields ) :
+                        $image_url = wp_get_attachment_image_src($fields['gallery_img'], 'full');
+                        $image_title = get_the_title($fields['gallery_img']); // 画像のタイトルを取得
+                    ?>
+                        <div class="gallery__img js-modal">
+                            <img src="<?php echo $image_url[0]; ?>" alt="<?php echo $image_title; ?>">
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
-            </div>
+            <?php endif; ?>
         </div>
     </section>
 </main>
